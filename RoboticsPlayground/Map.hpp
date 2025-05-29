@@ -5,21 +5,27 @@
 
 #include <iostream>
 #include <fstream>
+#include <filesystem>
 #include <cmath>
 #include <vector>
-
+#include "stb_image.h"
 
 // Class Map
 // class containing all data and methods for reading/writing data to the map
 
 class Map {
 private:
-
+	unsigned char* data;
+	int width, height, channels;
 
 public:
 	// Constructor
-	Map(std::string); // construct the class with a path to a .bmp map file.
-
+	Map();					// construct the class
+	void LoadMap(std::string);
+	unsigned char* GetData();
+	int GetHeight();
+	int GetWidth();
+	int GetChannels();
 };
 
 #endif
